@@ -1,0 +1,55 @@
+package dsa_practice.binary_tree;
+
+public class PathSumBinaryTree {
+
+    static class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+
+        TreeNode(int val) {
+            this.val = val;
+            this.left = null;
+            this.right = null;
+        }
+    }
+
+    public static void main(String[] args) {
+        // Example binary tree:
+        //       5
+        //      / \
+        //     4   8
+        //    /   / \
+        //   11  13  4
+        //  /  \      \
+        // 7    2      1
+        TreeNode root = new TreeNode(5);
+        root.left = new TreeNode(4);
+        root.right = new TreeNode(8);
+        root.left.left = new TreeNode(11);
+        root.left.left.left = new TreeNode(7);
+        root.left.left.right = new TreeNode(2);
+        root.right.left = new TreeNode(13);
+        root.right.right = new TreeNode(4);
+        root.right.right.right = new TreeNode(1);
+
+        int target = 22;
+        boolean result = hasPathSum(root, target);
+        System.out.println("Does the tree have a root-to-leaf path with the target sum? " + result);
+    }
+
+    private static boolean hasPathSum(TreeNode root, int target) {
+        if(root == null){
+            return false;
+        }
+
+        if(root.left == null && root.right == null){
+            return root.val == target;
+        }
+
+        int remainingVal = target - root.val;
+
+        return hasPathSum(root.left , remainingVal) || hasPathSum(root.right, remainingVal);
+
+    }
+}
