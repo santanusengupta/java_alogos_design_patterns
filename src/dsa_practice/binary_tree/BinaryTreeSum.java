@@ -1,7 +1,37 @@
 package dsa_practice.binary_tree;
 
 public class BinaryTreeSum {
+    /*
+    Given the root of a binary tree and an integer target, write a recursive function to determine if the tree
+    has a root-to-leaf path where all the values along that path sum to the target.
 
+    EXAMPLES
+            Example 1:
+// Example binary tree:
+            //        4
+            //      /   \
+            //     2     7
+            //    / \   /  \
+            //   1   3 6    9
+            Input:
+
+            [4, 2, 7, 1, 3, 6, 9]
+            target = 17
+            Output: true (the path is 4 -> 7 -> 6)
+
+            Example 2:
+
+            //        4
+            //      /   \
+            //     2     7
+            //    / \   /  \
+            //   1   3 6    9
+            Input:
+
+            [4, 2, 7, 1, 3, 6, 9]
+            target = 13
+            Output: false
+     */
     static class TreeNode {
         int val;
         TreeNode left;
